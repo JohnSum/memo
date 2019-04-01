@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.memo.dao.UserMapper">
+	<!-- 1、根据账号查询用户 -->
+	<select id="selectUserByAccount" parameterType="String"
+		resultType="int">
+		select count(*) from t_user where account = #{account}
+	</select>
+	<!-- 2、根据账号+密码查询用户 -->
+	<select id="selectUser" resultType="user">
+		select * from t_user where
+		account = #{account} and password = #{password}
+	</select>
+	<!-- 3、修改密码 -->
+	<update id="changePsw">
+		update t_user
+		<set>
+			<if test="newPsw != null and newPsw != ''">
+				password = #{newPsw}
+			</if>
+		</set>
+		<where>
+			and account = #{account}
+		</where>
+	</update>
+	<!-- 4、添加用户 -->
+	<insert id="addUser">
+		insert into t_user(account, nickname, password,
+		id_num, power) values(#{user.account}, #{user.nickname},
+		#{user.password}, #{user.id_num}, #{user.power})
+	</insert>
+</mapper>
