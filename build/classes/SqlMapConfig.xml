@@ -8,7 +8,7 @@
 
 	<!-- 管理Mapper配置文件 -->
 	<mappers>
-		<!-- <mapper resource="com/memo/mapper/UserMapper.xml" /> -->
+		<mapper resource="com/memo/mapper/UserMapper.xml" />
 		<package name="com.memo.mapper" />
 	</mappers>
 </configuration>

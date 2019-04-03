@@ -48,9 +48,11 @@ public class UserController {
 		User user = userService.userLogin(account, password);
 		String result;
 		if (user != null) {
+			System.out.println("查询到该用户！");
 			session.setAttribute("user", user);
 			result = "yes";
 		} else {
+			System.out.println("用户不存在！");
 			result = "no";
 		}
 

@@ -22,6 +22,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public User userLogin(String account, String password) {
+		System.out.println("用户登录：");
 		return userMapper.selectUser(account, password);
 	}
 
