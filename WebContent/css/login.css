@@ -1,0 +1,15 @@
+@charset "UTF-8";
+
+body {
+	text-align: center;
+	background-image: url(../img/login/bg.png);
+}
+
+#login{
+	margin-left:300px;
+}
+
+#checkCode{
+	width:50px;
+}
+
