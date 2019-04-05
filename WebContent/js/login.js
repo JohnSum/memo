@@ -1,11 +1,11 @@
 // 是否显示密码
-function checkboxOnclack(checkbox) {
-	if (checkbox.checked == true) {
-		$("password").setAttribute("type", "text");
-	} else {
-		$("password").setAttribute("type", "password");
+$("#view_psw").check(function() {
+	if($("this").checked == true){
+		$("#password").attr("type", "text");
+	}else{
+		$("#password").attr("type", "password");
 	}
-}
+});
 
 // 重置登录页面
 function resetInfo() {
