@@ -1,20 +1,27 @@
-// 是否显示密码
-$("#view_psw").click(function() {
-	if($(this).checked == true){
-		$("#password").attr("type", "text");
-	}else{
-		$("#password").attr("type", "password");
-	}
-});
+$(function() {
+	// 是否显示密码
+	$("#view_psw").click(function() {
+		if ($(this).is(':checked')) {
+			$("#password").attr("type", "text");
+		} else {
+			$("#password").attr("type", "password");
+		}
+	});
 
-// 重置登录页面
-function resetInfo() {
-	$("username").value = "";
-	$("password").value = "";
-	$("checkNode").value = "";
 	// 刷新验证码
-	createCode();
-}
+	$("#changeCode").click(function() {
+		createCode();
+	});
+	
+	// 重置登录页面
+	$("#rs").click(function() {
+		$("#account").val("");
+		$("#password").val("");
+		$("#checkCode").val("");
+		// 刷新验证码
+		createCode();
+	});
+});
 
 // 验证码的生成和验证
 var code;/* 定义一个验证码的全局变量 */
@@ -23,10 +30,10 @@ function createCode() {/* 生成验证码的函数 */
 	var codeLength = 5;
 	$("#checkNode").val("");
 	var selectChar = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd',
-			'e', 'f', 'g', 'h', 'i', 'j', 'k', 'm', 'n', 'o', 'p', 'q',
-			'r', 's', 't', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G',
-			'H', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T',
-			'U', 'V', 'W', 'X', 'Y', 'Z');
+			'e', 'f', 'g', 'h', 'i', 'j', 'k', 'm', 'n', 'o', 'p', 'q', 'r',
+			's', 't', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
+			'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V',
+			'W', 'X', 'Y', 'Z');
 	for (var i = 0; i < codeLength; i++) {
 		var charIndex = Math.floor(Math.random() * 56);
 		code += selectChar[charIndex];
@@ -34,6 +41,7 @@ function createCode() {/* 生成验证码的函数 */
 	if (code.length != codeLength) {
 		createCode();
 	}
+	$("#checkNode").attr("font-size", "20px");
 	$("#checkNode").val(code);
 }
 

@@ -1,15 +1,44 @@
 @charset "UTF-8";
 
 body {
-	text-align: center;
 	background-image: url(../img/login/bg.png);
+	font-size: 30px;
 }
 
-#login{
-	margin-left:300px;
+#lg {
+	text-align: center;
+	margin: 10% auto;
 }
 
-#checkCode{
-	width:50px;
+table {
+	display: inline-block;
+	margin: 0 auto;
 }
 
+form {
+	background-color: blue;
+	display: inline-block;
+	padding: 25px;
+	width: 500px;
+	padding: 25px;
+}
+
+input {
+	height: 26px;
+}
+
+.code {
+	width: 55px;
+}
+
+#checkNode {
+	text-align: center;
+}
+
+td {
+	text-align: left;
+}
+
+#changeCode{
+	margin-top:3px;
+}

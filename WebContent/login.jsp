@@ -11,8 +11,8 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
-<link rel="stylesheet" type="text/csc"
-	href="<%=basePath%>/css/login.css" />
+<link rel="stylesheet" type="text/css"
+	href="${pageContext.request.contextPath}/css/login.css" />
 <script type="text/javascript"
 	src="<%=basePath%>/jquery-easyui-1.7.0/jquery.min.js"></script>
 
@@ -28,33 +28,55 @@
 
 </head>
 <body>
-	<div id="login">
-		<h1>用户登录</h1>
-		<form action="<%=basePath%>/user/userLogin" method="post">
+	<div id="lg">
+		<form action="<%=basePath%>/user/userLogin" method="post" id="login">
 			<table>
 				<tr>
-					<th><label for="account">账&ensp;&ensp;号：</label></th>
-					<td colspan="2"><input type="text" id="account" name="account" /></td>
+					<th colspan="3">
+						<h1>用户登录</h1>
+					</th>
 				</tr>
 				<tr>
-					<th><label for="password">密&ensp;&ensp;码：</label></th>
-					<td colspan="2"><input type="password" id="password"
-						name="password" /></td>
+					<th>
+						<label for="account">账&ensp;&ensp;号：</label>
+					</th>
+					<td colspan="2">
+						<input type="text" id="account" name="account" />
+						<img src="" alt="" />
+					</td>
+				</tr>
+				<tr>
+					<th>
+						<label for="password">密&ensp;&ensp;码：</label>
+					</th>
+					<td colspan="2">
+						<input type="password" id="password" name="password" />
+						<img src="" alt="" />
+					</td>
 				</tr>
 				<tr>
 					<td></td>
-					<td colspan="2"><input type="checkbox" id="view_psw"
-						name="view_psw" /> <label for="view_psw">显示密码？</label></td>
+					<td colspan="2" style="text-align: left;">
+						<input type="checkbox" id="view_psw" name="view_psw" />
+						<label for="view_psw">
+							<span style="color:red;">显示密码？</span>
+						</label>
+					</td>
 				</tr>
 				<tr>
 					<th><label for="checkCode">验证码：</label></th>
-					<td colspan="2"><input type="text" id="checkCode" style="width: 70px;" /> <input
-						type="text" id="checkNode" disabled="disabled" style="width: 70px;text-align: center;" /></td>
+					<td colspan="2">
+						<input type="text" id="checkCode" class="code" />
+						<img src="" alt="" />
+						<input type="text" id="checkNode" class="code" />
+						<a href="#" id="changeCode">刷新</a>
+					</td>
 				</tr>
 				<tr>
-					<td><input type="submit" value="登录" /></td>
-					<td><input type="reset" value="重置" /></td>
-					<td><input type="button" value="注册" /></td>
+					<td colspan="3">
+						<input type="submit" value="登录" />
+						<input type="button" id="rs" value="重置" />
+					</td>
 				</tr>
 			</table>
 			<br />
