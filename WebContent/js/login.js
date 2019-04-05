@@ -1,6 +1,6 @@
 // 是否显示密码
-$("#view_psw").check(function() {
-	if($("this").checked == true){
+$("#view_psw").click(function() {
+	if($(this).checked == true){
 		$("#password").attr("type", "text");
 	}else{
 		$("#password").attr("type", "password");
