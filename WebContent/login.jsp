@@ -10,13 +10,13 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+
 <link rel="stylesheet" type="text/csc"
 	href="<%=basePath%>/css/login.css" />
 <script type="text/javascript"
-	src="<%=basePath%>/js/jquery-3.3.1.slim.min.js"></script>
-<script type="text/javascript" src="<%=basePath%>/js/login.js"></script>
+	src="<%=basePath%>/jquery-easyui-1.7.0/jquery.min.js"></script>
 
-<title>用户登录</title>
+<script type="text/javascript" src="<%=basePath%>/js/login.js"></script>
 
 <script type="text/javascript">
 	/*在页面加载完成时生成一个随机的验证码*/
@@ -24,6 +24,8 @@
 		createCode();
 	}
 </script>
+<title>用户登录</title>
+
 </head>
 <body>
 	<div id="login">
@@ -40,8 +42,14 @@
 						name="password" /></td>
 				</tr>
 				<tr>
+					<td></td>
+					<td colspan="2"><input type="checkbox" id="view_psw"
+						name="view_psw" /> <label for="view_psw">显示密码？</label></td>
+				</tr>
+				<tr>
 					<th><label for="checkCode">验证码：</label></th>
-					<td colspan="2"><input type="text" id="checkCode" /><span id="checkNode">123456</span></td>
+					<td colspan="2"><input type="text" id="checkCode" style="width: 70px;" /> <input
+						type="text" id="checkNode" disabled="disabled" style="width: 70px;text-align: center;" /></td>
 				</tr>
 				<tr>
 					<td><input type="submit" value="登录" /></td>

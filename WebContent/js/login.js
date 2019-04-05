@@ -21,8 +21,7 @@ var code;/* 定义一个验证码的全局变量 */
 function createCode() {/* 生成验证码的函数 */
 	code = "";
 	var codeLength = 5;
-	var checkCode = $("checkCode");
-	checkCode.value = "";
+	$("#checkNode").val("");
 	var selectChar = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd',
 			'e', 'f', 'g', 'h', 'i', 'j', 'k', 'm', 'n', 'o', 'p', 'q',
 			'r', 's', 't', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G',
@@ -35,8 +34,7 @@ function createCode() {/* 生成验证码的函数 */
 	if (code.length != codeLength) {
 		createCode();
 	}
-	checkCode.value = code;
-	//document.getElementById("checkCode").value = code;
+	$("#checkNode").val(code);
 }
 
 /**
@@ -45,23 +43,22 @@ function createCode() {/* 生成验证码的函数 */
  * @returns
  */
 function validate() {
-	var employee_id = $("employee_id").value;
-	var password = $("password").value;
-	if (employee_id == null || employee_id == '') {
+	var account = $("#account").val();
+	var password = $("#password").val();
+	if (account == null || account == '') {
 		alert("请输入工号！");
 		return false;
 	} else if (password = null || password == '') {
 		alert("请输入密码！");
 		return false;
 	}
-	var inputCode = $("checkNode").value.toUpperCase();
+	var inputCode = $("#checkNode").value.toUpperCase();
 	var codeToUp = code.toUpperCase();
 	if (inputCode.length <= 0) {
 		alert("请输入验证码！");
 		return false;
 	} else if (inputCode != codeToUp) {
 		alert("验证码输入错误！");
-		// createCode();
 		return false;
 	} else {
 		return true;
