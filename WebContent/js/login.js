@@ -9,7 +9,7 @@ $(function() {
 	});
 
 	// 刷新验证码
-	$("#changeCode").click(function() {
+	$("#checkNode").click(function() {
 		createCode();
 	});
 	
@@ -28,7 +28,7 @@ var code;/* 定义一个验证码的全局变量 */
 function createCode() {/* 生成验证码的函数 */
 	code = "";
 	var codeLength = 5;
-	$("#checkNode").val("");
+	$("#checkNode").html("");
 	var selectChar = new Array(1, 2, 3, 4, 5, 6, 7, 8, 9, 'a', 'b', 'c', 'd',
 			'e', 'f', 'g', 'h', 'i', 'j', 'k', 'm', 'n', 'o', 'p', 'q', 'r',
 			's', 't', 'x', 'y', 'z', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H',
@@ -41,8 +41,7 @@ function createCode() {/* 生成验证码的函数 */
 	if (code.length != codeLength) {
 		createCode();
 	}
-	$("#checkNode").attr("font-size", "20px");
-	$("#checkNode").val(code);
+	$("#checkNode").html(code);
 }
 
 /**

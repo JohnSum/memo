@@ -28,6 +28,15 @@
 
 </head>
 <body>
+	<div style="margin-right: 30px;">
+		<span>主题：</span>
+		<select>
+			<option value="1" selected="selected">粉红色</option>
+			<option value="2">淡蓝色</option>
+			<option value="3">蓝色</option>
+			<option value="4">白色</option>
+		</select>
+	</div>
 	<div id="lg">
 		<form action="<%=basePath%>/user/userLogin" method="post" id="login">
 			<table>
@@ -67,15 +76,14 @@
 					<th><label for="checkCode">验证码：</label></th>
 					<td colspan="2">
 						<input type="text" id="checkCode" class="code" />
+						<span id="checkNode"></span>
 						<img src="" alt="" />
-						<input type="text" id="checkNode" class="code" />
-						<a href="#" id="changeCode">刷新</a>
 					</td>
 				</tr>
 				<tr>
 					<td colspan="3">
-						<input type="submit" value="登录" />
-						<input type="button" id="rs" value="重置" />
+						<input type="submit" value="登录" class="op" />
+						<input type="button" id="rs" value="重置" class="op" />
 					</td>
 				</tr>
 			</table>

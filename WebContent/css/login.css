@@ -2,7 +2,6 @@
 
 body {
 	background-image: url(../img/login/bg.png);
-	font-size: 30px;
 }
 
 #lg {
@@ -21,24 +20,49 @@ form {
 	padding: 25px;
 	width: 500px;
 	padding: 25px;
+	font-size: 30px;
 }
 
-input {
+input, label {
 	height: 26px;
+	vertical-align: middle;
 }
 
-.code {
-	width: 55px;
+#view_psw {
+	zoom: 180%;
+	vertical-align: middle;
 }
 
-#checkNode {
-	text-align: center;
+#checkCode {
+	width: 80px;
 }
 
 td {
 	text-align: left;
 }
 
-#changeCode{
-	margin-top:3px;
+#checkNode {
+	background-image: url("../img/login/bc.png");
+	vertical-align: middle;
+	text-align: center;
+	font-family: 黑体;
+	color: red;
+	width: 85px;
+	padding: 2px;
+	/* 不允许选中/复制 */
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+img {
+	width: 20px;
+}
+
+.op {
+	text-align: center;
+	width: 125px;
+	height: 40px;
+	font-size: 25px;
+	letter-spacing: 5px;
+	width: 100px;
 }
