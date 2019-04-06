@@ -28,63 +28,45 @@
 
 </head>
 <body>
-	<div style="margin-right: 30px;">
-		<span>主题：</span>
-		<select>
-			<option value="1" selected="selected">粉红色</option>
-			<option value="2">淡蓝色</option>
-			<option value="3">蓝色</option>
-			<option value="4">白色</option>
-		</select>
-	</div>
 	<div id="lg">
+		<div id="theme">
+			<select>
+				<option value="1" selected="selected">粉红色</option>
+				<option value="2">淡蓝色</option>
+				<option value="3">蓝色</option>
+				<option value="4">白色</option>
+			</select>
+		</div>
+		<h1>用户登录</h1>
 		<form action="<%=basePath%>/user/userLogin" method="post" id="login">
 			<table>
 				<tr>
-					<th colspan="3">
-						<h1>用户登录</h1>
-					</th>
+					<th><label for="account">账&ensp;&ensp;号</label></th>
+					<td colspan="2"><input type="text" id="account" name="account" class="inpu" />
+						<img class="picture" src="img\login\yes.png" alt="" /></td>
 				</tr>
 				<tr>
-					<th>
-						<label for="account">账&ensp;&ensp;号：</label>
-					</th>
-					<td colspan="2">
-						<input type="text" id="account" name="account" />
-						<img src="" alt="" />
-					</td>
-				</tr>
-				<tr>
-					<th>
-						<label for="password">密&ensp;&ensp;码：</label>
-					</th>
-					<td colspan="2">
-						<input type="password" id="password" name="password" />
-						<img src="" alt="" />
-					</td>
+					<th><label for="password">密&ensp;&ensp;码</label></th>
+					<td colspan="2"><input type="password" id="password"
+						name="password" class="inpu" /> <img class="picture" src="img\login\yes.png"
+						alt="" /></td>
 				</tr>
 				<tr>
 					<td></td>
-					<td colspan="2" style="text-align: left;">
-						<input type="checkbox" id="view_psw" name="view_psw" />
-						<label for="view_psw">
-							<span style="color:red;">显示密码？</span>
-						</label>
-					</td>
+					<td colspan="2" style="text-align: left;"><input
+						type="checkbox" id="view_psw" name="view_psw" /> <label
+						for="view_psw"> <span class="picture" style="color: red;">显示密码？</span>
+					</label></td>
 				</tr>
 				<tr>
-					<th><label for="checkCode">验证码：</label></th>
-					<td colspan="2">
-						<input type="text" id="checkCode" class="code" />
-						<span id="checkNode"></span>
-						<img src="" alt="" />
-					</td>
+					<th><label for="checkCode">验证码</label></th>
+					<td colspan="2"><input type="text" id="checkCode" class="inpu" />
+						<span id="checkNode"></span><img class="picture"
+						src="img\login\yes.png" alt="" style="margin-left: 5px;" /></td>
 				</tr>
 				<tr>
-					<td colspan="3">
-						<input type="submit" value="登录" class="op" />
-						<input type="button" id="rs" value="重置" class="op" />
-					</td>
+					<td colspan="3"><input type="submit" value="登录" class="op" />
+						<input type="button" id="rs" value="重置" class="op" /></td>
 				</tr>
 			</table>
 			<br />

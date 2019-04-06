@@ -1,12 +1,25 @@
 @charset "UTF-8";
 
-body {
-	background-image: url(../img/login/bg.png);
-}
-
 #lg {
 	text-align: center;
 	margin: 10% auto;
+	width: 500px;
+	background-image: url(../img/login/bg.png);
+}
+
+#lg #theme {
+	padding-top: 20px;
+	margin-right: 20px;
+	text-align: right;
+}
+
+#lg #theme select {
+	background: url("../img/login/bc.png") no-repeat;
+	background-size: 100% 100%;
+	border: none;
+	height: 30px;
+	vertical-align: middle;
+	height: 30px;
 }
 
 table {
@@ -15,17 +28,27 @@ table {
 }
 
 form {
-	background-color: blue;
 	display: inline-block;
+	padding: 10px;
+	width: 350px;
 	padding: 25px;
-	width: 500px;
-	padding: 25px;
-	font-size: 30px;
 }
 
-input, label {
-	height: 26px;
+form label {
+	font-size: 25px;
+}
+
+input {
+	height: 30px;
 	vertical-align: middle;
+	border: none;
+}
+
+.inpu {
+	background: url("../img/login/userinput.png") no-repeat;
+	background-size: 100% 100%;
+	text-indent: 30px;
+	margin-left: 20px;
 }
 
 #view_psw {
@@ -34,28 +57,38 @@ input, label {
 }
 
 #checkCode {
-	width: 80px;
+	width: 92px;
+}
+
+th {
+	text-align: right;
 }
 
 td {
 	text-align: left;
 }
 
+.picture {
+	width: 20px;
+	height: 20px;
+	vertical-align: middle;
+}
+
+/* 验证码 */
 #checkNode {
-	background-image: url("../img/login/bc.png");
+	background: #686868;
+	background-size: 100% 100%;
+	padding: 5px;
 	vertical-align: middle;
 	text-align: center;
 	font-family: 黑体;
-	color: red;
+	font-size: 23px;
+	color: #ff00ff;
 	width: 85px;
-	padding: 2px;
 	/* 不允许选中/复制 */
 	-webkit-user-select: none;
 	user-select: none;
-}
-
-img {
-	width: 20px;
+	vertical-align: middle;
 }
 
 .op {
