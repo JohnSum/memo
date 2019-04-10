@@ -3,7 +3,8 @@
 <configuration>
 	<!-- 管理实体类 -->
 	<typeAliases>
-		<package name="com.memo.entity"></package>
+		<typeAlias type="com.memo.entity.User"/>
+		<!-- <package name="com.memo.entity"></package> -->
 	</typeAliases>
 
 	<!-- 管理Mapper配置文件 -->

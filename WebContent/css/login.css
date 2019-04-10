@@ -1,101 +1,219 @@
 @charset "UTF-8";
 
-#lg {
+body {
+	background-color: #fdcfc4;
+}
+
+#container {
+	position: relative;
+}
+
+#bd {
+	min-height: 600px;
+}
+
+.login_box {
+	position: relative;
+	background: url("../img/login/loginbox.png") no-repeat;
+	background-size: 100% 100%;
+	border-radius: 8px;
+	border: 1px none #808040;
+	padding: 20px;
+	margin: 0 auto 0;
+	width: 650px;
+}
+
+.login_box #logo {
+	position: absolute;
+	left: 68px;
+	top: 7px;
+	width: 89px;
+	height: 89px;
+	background: url(../img/login/logo.png) no-repeat;
+}
+
+.login_box h1 {
+	position: absolute;
+	left: 88px;
+	top: 68px;
+	width: 400px;
+	height: 100px;
+	background: url(../img/login/loginname.png) no-repeat;
+}
+
+.box {
+	display: inline-block;
+}
+
+.user_box {
+	width: 300px;
+	margin: 170px 20px 10px 100px;
+}
+
+.op_box {
+	vertical-align: top;
 	text-align: center;
-	margin: 10% auto;
-	width: 500px;
-	background-image: url(../img/login/bg.png);
+	width: 140px;
+	margin: 170px 30px 10px 10px;
 }
 
-#lg #theme {
-	padding-top: 20px;
-	margin-right: 20px;
-	text-align: right;
-}
-
-#lg #theme select {
-	background: url("../img/login/bc.png") no-repeat;
-	background-size: 100% 100%;
-	border: none;
-	height: 30px;
-	vertical-align: middle;
-	height: 30px;
-}
-
-table {
+/* 输入框背景 */
+.icon-position {
+	z-index: 2;
+	position: relative;
+	height: 45px;
+	width: 250px;
 	display: inline-block;
-	margin: 0 auto;
-}
-
-form {
-	display: inline-block;
-	padding: 10px;
-	width: 350px;
-	padding: 25px;
-}
-
-form label {
-	font-size: 25px;
-}
-
-input {
-	height: 30px;
 	vertical-align: middle;
+}
+
+.acco {
+	background: url("../img/login/userinput.png");
+	background-repeat: no-repeat;
+	background-position: 5px center;
+}
+
+.psw {
+	background: url("../img/login/passwordinput.png");
+	background-repeat: no-repeat;
+	background-position: 5px center;
+}
+
+.input-position {
+	z-index: 3;
+	position: absolute;
+	display: inline-block;
+	margin-top: 4px;
+	margin-left: -200px;
+	padding-left: 0px;
+}
+
+/* 输入框 */
+.input-style {
+	background-color: #f3f5f7;
+	border-radius: 4px;
+	font-size: 14px;
+	font-family: 微软雅黑, 黑体;
+	vertical-align: middle;
+	height: 34px;
+	line-height: 40px;
+	outline: 0px;
 	border: none;
+	width: 190px;
+	height: 34px;
+	color: #2291ff;
+	font-size: large;
+	font-weight: bold;
 }
 
-.inpu {
-	background: url("../img/login/userinput.png") no-repeat;
-	background-size: 100% 100%;
-	text-indent: 30px;
-	margin-left: 20px;
-}
-
+/* 是否显示密码框 */
 #view_psw {
-	zoom: 180%;
+	zoom: 120%;
 	vertical-align: middle;
 }
 
-#checkCode {
-	width: 92px;
+span {
+	font-family: serif;
+	font-size: 18px;
+	font-weight: bold;
+	color: red;
+	font-weight: bold;
+	vertical-align: middle;
 }
 
-th {
-	text-align: right;
-}
-
-td {
-	text-align: left;
-}
-
+/* 登录前验证提示框 */
 .picture {
+	display: none;
+	margin-left: 5px;
 	width: 20px;
 	height: 20px;
 	vertical-align: middle;
+	width: 20px;
+	margin-left: 5px;
 }
 
-/* 验证码 */
-#checkNode {
-	background: #686868;
-	background-size: 100% 100%;
-	padding: 5px;
+/* 验证码输入框 */
+#checkCode {
+	text-indent: 20px;
+	border: 1px solid #c5c7c9;
+	margin-left: 3px;
+	width: 145px;
+	border-radius: 5px;
+}
+
+/* 验证码显示框 */
+.check-style {
+	display: inline-block;
+	background-color: #f3f5f7;
+	border-radius: 5px;
+	border: 1px solid #c5c7c9;
 	vertical-align: middle;
 	text-align: center;
-	font-family: 黑体;
-	font-size: 23px;
+	font-family: 微软雅黑, 黑体;
+	font-size: 22px;
 	color: #ff00ff;
-	width: 85px;
+	width: 90px;
+	height: 37px;
+	line-height: 40px;
 	/* 不允许选中/复制 */
 	-webkit-user-select: none;
 	user-select: none;
+}
+
+/* 主题选择框 */
+select {
+	border-radius: 10px;
+	border: 1px solid #000;
+	/*将浏览器默认的select选择框样式清除*/
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
 	vertical-align: middle;
+	margin: 30px 0 55px 0;
+	text-align: center;
+	text-align-last: center;
+	font-family: 华文琥珀;
+	color: red;
+	width: 90px;
+	height: 40px;
+	text-align-last: center;
+	/*在选择框的最右侧中间显示小箭头图片*/
+	background:
+		url("../img/login/arrow.png")
+		no-repeat scroll right center transparent;
+	/*为下拉小箭头留出一点位置，避免被文字覆盖*/
+	padding-right: 14px;
+}
+
+/*清除ie的默认选择框样式清除，隐藏下拉箭头*/
+select::-ms-expand {
+	display: none;
 }
 
 .op {
+	background-color: #ffffff;
+	border-radius: 8px;
+	border: 3px double #808040;
+	width: 60px;
+	font-size: 18px;
+	height: 35px;
+	vertical-align: middle;
+	margin: 10px 0 10px 0;
+	vertical-align: middle;
+}
+
+.input {
+	margin-top: 10px;
+}
+
+#ft {
+	position: absolute;
+	bottom: 40px;
+	left: 0;
+	right: 0;
+	height: 12px;
+	width: 100%;
 	text-align: center;
-	width: 125px;
-	height: 40px;
-	font-size: 25px;
-	letter-spacing: 5px;
-	width: 100px;
+	line-height: 12px;
+	color: #095071;
 }

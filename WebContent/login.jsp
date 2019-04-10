@@ -1,4 +1,3 @@
-<?xml version="1.0" encoding="UTF-8" ?>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
@@ -12,7 +11,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 
 <link rel="stylesheet" type="text/css"
-	href="${pageContext.request.contextPath}/css/login.css" />
+	href="<%=basePath%>/css/login.css" />
 <script type="text/javascript"
 	src="<%=basePath%>/jquery-easyui-1.7.0/jquery.min.js"></script>
 
@@ -28,50 +27,80 @@
 
 </head>
 <body>
-	<div id="lg">
-		<div id="theme">
-			<select>
-				<option value="1" selected="selected">粉红色</option>
-				<option value="2">淡蓝色</option>
-				<option value="3">蓝色</option>
-				<option value="4">白色</option>
-			</select>
+	<div id="container">
+		<div id="bd">
+			<div class="login_box">
+				<div id="logo"></div>
+				<h1></h1>
+				<form action="<%=basePath%>tx/to_index.action" method="post" id="login_form" onsubmit="return login()">
+					<div class="user_box box">
+						<!-- 账号 -->
+						<div id="account_box" class="input">
+							<div class="acco icon-position"></div>
+							<div class="input-position">
+								<input type="text" id="account" maxlength="16" name="account" 
+									class="input-style" placeholder="请输入账号" />
+								<img id="acco_tip" class="picture" src="" alt="" />
+							</div><br />
+						</div>	
+						
+						<!-- 密码 -->
+						<div id="password_box" class="input">
+							<div class="psw icon-position"></div>
+							<div class="input-position">
+								<input type="password" id="password" maxlength="16" name="password" 
+									class="input-style" placeholder="请输入密码" />
+								<img id="psw_tip" class="picture" src="" alt="" />
+							</div><br />
+						</div>
+						
+						<!-- 是否显示密码 -->
+						<div id="view_box" class="input">
+							<input type="checkbox" id="view_psw" name="view_psw" />
+							<label for="view_psw"><span>显示密码？</span></label>
+						</div><br />
+						
+						<!-- 验证码 -->
+						<div id="checkcode_box" class="input">
+							<input type="text" id="checkCode" maxlength = "5" placeholder="验证码" class="input-style" />
+							<div id="checkNode" class="check-style"></div>
+							<img id="check_tip" class="picture" src="" alt="" />
+						</div><br />
+					</div>
+					<!-- 操作 -->
+					<div class="op_box box">
+						<select id="theme">
+							<option value="1" selected="selected">粉 红 风 格</option>
+							<option value="2">淡 蓝 风 格</option>
+							<option value="3">青 柠 风 格</option>
+							<option value="4">白 色 风 格</option>
+						</select><br />
+						<span>还没有账号？请点击<a href="#">注册</a></span><br />
+						<input type="submit" id="sub" value="登 录" class="op" disabled />
+						<input type="button" id="rs" value="重 置" class="op" /><br />
+					</div><br />
+				</form>
+			</div>
+			<div id="ft">CopyRight&nbsp;2019&nbsp;&nbsp;版权所有
+			&nbsp;&nbsp;liaomingxing2017.vicp.io 仅供学习参考 &nbsp;&nbsp;渝CP备201904号</div>
 		</div>
-		<h1>用户登录</h1>
-		<form action="<%=basePath%>/user/userLogin" method="post" id="login">
-			<table>
-				<tr>
-					<th><label for="account">账&ensp;&ensp;号</label></th>
-					<td colspan="2"><input type="text" id="account" name="account" class="inpu" />
-						<img class="picture" src="img\login\yes.png" alt="" /></td>
-				</tr>
-				<tr>
-					<th><label for="password">密&ensp;&ensp;码</label></th>
-					<td colspan="2"><input type="password" id="password"
-						name="password" class="inpu" /> <img class="picture" src="img\login\yes.png"
-						alt="" /></td>
-				</tr>
-				<tr>
-					<td></td>
-					<td colspan="2" style="text-align: left;"><input
-						type="checkbox" id="view_psw" name="view_psw" /> <label
-						for="view_psw"> <span class="picture" style="color: red;">显示密码？</span>
-					</label></td>
-				</tr>
-				<tr>
-					<th><label for="checkCode">验证码</label></th>
-					<td colspan="2"><input type="text" id="checkCode" class="inpu" />
-						<span id="checkNode"></span><img class="picture"
-						src="img\login\yes.png" alt="" style="margin-left: 5px;" /></td>
-				</tr>
-				<tr>
-					<td colspan="3"><input type="submit" value="登录" class="op" />
-						<input type="button" id="rs" value="重置" class="op" /></td>
-				</tr>
-			</table>
-			<br />
-			<div></div>
-		</form>
 	</div>
+	<script type="text/javascript">
+		var height = $(window).height() > 445 ? $(window).height() : 445;
+		$("#container").height(height);
+		var bdheight = ($(window).height() - $('#bd').height()) / 2 - 20;
+		$('#bd').css('padding-top', bdheight);
+		$(window).resize(function(e) {
+	        var height = $(window).height() > 445 ? $(window).height() : 445;
+			$("#container").height(height);
+			var bdheight = ($(window).height() - $('#bd').height()) / 2 - 20;
+			$('#bd').css('padding-top', bdheight);
+	    });
+		$('select').select();
+		
+		$('.loginButton').click(function(e) {
+	        document.location.href = "main.html";
+	    });
+	</script>
 </body>
 </html>

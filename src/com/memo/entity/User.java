@@ -1,7 +1,7 @@
 package com.memo.entity;
 
 public class User {
-	public String account; // 账号
+	public int account; // 账号
 	public String nickname; // 名字
 	public String password; // 密码
 	public String id_num; // 身份证号（关联关联实名认证）
@@ -12,7 +12,7 @@ public class User {
 		// TODO Auto-generated constructor stub
 	}
 
-	public User(String account, String nickname, String password, String id_num, int power) {
+	public User(int account, String nickname, String password, String id_num, int power) {
 		super();
 		this.account = account;
 		this.nickname = nickname;
@@ -21,11 +21,11 @@ public class User {
 		this.power = power;
 	}
 
-	public String getAccount() {
+	public int getAccount() {
 		return account;
 	}
 
-	public void setAccount(String account) {
+	public void setAccount(int account) {
 		this.account = account;
 	}
 

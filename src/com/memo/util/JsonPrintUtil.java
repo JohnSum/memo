@@ -17,7 +17,6 @@ public class JsonPrintUtil {
 			PrintWriter out = response.getWriter();
 			out.print(result);
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
