@@ -101,7 +101,6 @@
 				<div class="title">
 					<i class="sidebar-show"></i>
 					<ul class="tab ue-clear">
-
 					</ul>
 					<i class="tab-more"></i> <i class="tab-close"></i>
 				</div>

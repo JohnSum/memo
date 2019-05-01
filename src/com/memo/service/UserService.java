@@ -9,7 +9,7 @@ public interface UserService {
 	 * @param account
 	 * @return
 	 */
-	public boolean selectUserByAccount(int account);
+	public boolean selectUserByAccount(String account);
 
 	/**
 	 * 用户登录（账号+密码）
@@ -18,7 +18,7 @@ public interface UserService {
 	 * @param password
 	 * @return
 	 */
-	public User userLogin(int account, String password);
+	public User userLogin(String account, String password);
 
 	/**
 	 * 根据账号修改密码（先获得账号）
@@ -27,7 +27,7 @@ public interface UserService {
 	 * @param newPsw
 	 * @return
 	 */
-	public boolean changePsw(int account, String newPsw);
+	public boolean changePsw(String account, String newPsw);
 
 	/**
 	 * 用户注册

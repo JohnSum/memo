@@ -33,12 +33,11 @@
 					<a href="javascript:;" class="user-avatar"><span><i
 							class="info-num">0</i></span></a>
 					<span class="user-name">${user.nickname}</span>
-					<a href="javascript:;" class="more-info"></a>
 				</div>
 				<div class="setting ue-clear">
 					<div class="setting-skin">
 						<div class="switch-bar">
-							<i class="skin-icon"></i> <span class="text">皮肤</span> <i
+							<i class="skin-icon"></i> <span class="text">主题</span> <i
 								class="arrow-icon"></i>
 						</div>
 					</div>
@@ -53,7 +52,7 @@
 			<div class="hd-bottom">
 				<i class="home"><a href="javascript:;"></a></i>
 				<div class="nav-wrap">
-					<ul class="nav ue-clear">
+					<ul class="nav ue-clear" style="font-weight: bolder;">
 						<c:if test="${user.power == 1}">
 							<li><a href="<%=basePath%>tx/memo.action" target="mainIframe">备忘录</a></li>
 							<li><a href="<%=basePath%>tx/memo.action" target="mainIframe">收支记录</a></li>
@@ -74,9 +73,16 @@
 				</div>
 			</div>
 		</div>
+		<!-- 显示主页面 -->
 		<div id="bd">
 			<iframe width="100%" height="100%" id="mainIframe" name="mainIframe"
-				src="<%=basePath%>tx/memo.action" frameborder="0"></iframe>
+				src="
+				<c:if test="${user.power == 1}">
+					<%=basePath%>tx/memo.action
+				</c:if>
+				<c:if test="${user.power == 0}">
+					<%=basePath%>tx/user.action
+				</c:if>" frameborder="0"></iframe>
 		</div>
 
 		<div id="ft" class="ue-clear">
@@ -220,25 +226,12 @@
 
 		$('.skin-opt').click(function(e) {
 			if ($(e.target).is('li')) {
-				alert($(e.target).attr('attr-color'));
+				$("#hd").css("background", $(e.target).attr('attr-color'));
+				$(this).css("display", "none");
 			}
 		});
-		$('.hd-top .user-info .more-info').click(function(e) {
-			$(this).toggleClass('active');
-			$('.user-opt').toggle();
-		});
-		$('.logo-icon').click(function(e) {
-			$(this).toggleClass('active');
-			$('.system-switch').toggle();
-		});
-		hideElement($('.user-opt'), $('.more-info'), function(current, target) {
-			$('.more-info').removeClass('active');
-		});
+		
 		hideElement($('.skin-opt'), $('.switch-bar'));
-		hideElement($('.system-switch'), $('.logo-icon'), function(current,
-				target) {
-			$('.logo-icon').removeClass('active');
-		});
 	})();
 </script>
 </html>

@@ -13,7 +13,7 @@ public class UserServiceImpl implements UserService {
 	private UserMapper userMapper;
 
 	@Override
-	public boolean selectUserByAccount(int account) {
+	public boolean selectUserByAccount(String account) {
 		if (userMapper.selectUserByAccount(account) >= 1) {
 			return true;
 		}
@@ -21,12 +21,12 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
-	public User userLogin(int account, String password) {
+	public User userLogin(String account, String password) {
 		return userMapper.selectUser(account, password);
 	}
 
 	@Override
-	public boolean changePsw(int account, String newPsw) {
+	public boolean changePsw(String account, String newPsw) {
 		if(userMapper.changePsw(account, newPsw) > 0) {
 			return true;
 		}

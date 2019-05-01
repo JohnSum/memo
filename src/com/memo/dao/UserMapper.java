@@ -11,7 +11,7 @@ public interface UserMapper {
 	 * @param account
 	 * @return
 	 */
-	public int selectUserByAccount(@Param("account") int account);
+	public int selectUserByAccount(@Param("account") String account);
 
 	/**
 	 * 2、根据账号+密码查询用户
@@ -20,7 +20,7 @@ public interface UserMapper {
 	 * @param password
 	 * @return
 	 */
-	public User selectUser(@Param("account") int account, @Param("password") String password);
+	public User selectUser(@Param("account") String account, @Param("password") String password);
 
 	/**
 	 * 3、修改密码
@@ -29,7 +29,7 @@ public interface UserMapper {
 	 * @param newPsw
 	 * @return
 	 */
-	public int changePsw(@Param("account") int account, @Param("newPsw") String newPsw);
+	public int changePsw(@Param("account") String account, @Param("newPsw") String newPsw);
 
 	/**
 	 * 4、添加用户

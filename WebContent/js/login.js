@@ -61,24 +61,6 @@ $(function() {
 			checkAccount(account);
 		}
 	});
-	// ajax验证账号是否存在
-	function checkAccount(account) {
-		$.ajax({
-			type : 'POST',
-			url : path + "/user/selectAccount.action",
-			data : {
-				"account" : account
-			},
-			success : function(data) {
-				if (data == "yes") {
-					$("#acco_tip").attr("src", "img/login/yes.png");
-				} else if (data == "no") {
-					$("#acco_tip").attr("src", "img/login/no.png");
-					$("#sub").attr("disabled", "true");
-				}
-			}
-		});
-	}
 
 	$("#password").blur(function() {
 		var account = $("#account").val();
@@ -97,26 +79,6 @@ $(function() {
 			$("#acco_tip").attr("src", "img/login/no.png");
 		}
 	});
-	// ajax验证用戶是否存在
-	function checkUser(account, password) {
-		$.ajax({
-			type : 'POST',
-			url : path + "/user/userLogin.action",
-			data : {
-				"account" : account,
-				"password" : password
-			},
-			success : function(data) {
-				if (data == "yes") {
-					$("#psw_tip").attr("src", "img/login/yes.png");
-					$("#sub").removeAttr("disabled");
-				} else if (data == "no") {
-					$("#password").focus();
-					$("#psw_tip").attr("src", "img/login/no.png");
-				}
-			}
-		});
-	}
 
 	$("#checkCode").blur(function() {
 		var checkCode = $(this).val().toUpperCase();
@@ -124,19 +86,6 @@ $(function() {
 		$("#check_tip").css("display", "inline");
 		check(checkCode, checkNode);
 	});
-	// 检查验证码是否正确
-	function check(checkCode, checkNode) {
-		if (checkCode.length <= 0) {
-			$("#checkCode").attr("result", "0");
-			$("#check_tip").attr("src", "img/login/no.png");
-		} else if (checkCode == checkNode) {
-			$("#checkCode").attr("result", "1");
-			$("#check_tip").attr("src", "img/login/yes.png");
-		} else {
-			$("#checkCode").attr("result", "0");
-			$("#check_tip").attr("src", "img/login/no.png");
-		}
-	}
 
 	$("#theme").change(function() {
 		var color = $(this).val();
@@ -152,6 +101,77 @@ $(function() {
 	});
 });
 
+//ajax验证账号
+function checkAccount(account) {
+	$.ajax({
+		type : 'POST',
+		url : path + "/user/selectAccount.action",
+		data : {
+			"account" : account
+		},
+		timeout : 5000,
+		success : function(status) {
+			if (status == "yes") {
+				$("#acco_tip").attr("src", "img/login/yes.png");
+			} else if (status == "no") {
+				$("#acco_tip").attr("src", "img/login/no.png");
+				$("#sub").attr("disabled", "true");
+			}
+		},
+		complete : function(status) {
+			if (status == 'timeout') {
+				alert("登录超时，请重试！");
+			}
+		}/*,
+		error : function() {
+			alert("系统故障，请联系管理员！");
+		}*/
+	});
+}
+
+//ajax验证密码
+function checkUser(account, password) {
+	$.ajax({
+		type : 'POST',
+		url : path + "/user/userLogin.action",
+		timeout : 5000,
+		data : {
+			"account" : account,
+			"password" : password
+		},
+		success : function(data) {
+			if (data == "yes") {
+				$("#psw_tip").attr("src", "img/login/yes.png");
+				$("#sub").removeAttr("disabled");
+			} else if (data == "no") {
+				$("#password").focus();
+				$("#psw_tip").attr("src", "img/login/no.png");
+			}
+		},
+		complete : function(status) { // 请求完成后最终执行参数
+			if (status == 'timeout') {// 超时,status还有success,error等值的情况
+				alert("登录超时，请重试！");
+			}
+		},
+		error : function() {
+			alert("系统故障，请联系管理员！");
+		}
+	});
+}
+
+//检查验证码是否正确
+function check(checkCode, checkNode) {
+	if (checkCode.length <= 0) {
+		$("#checkCode").attr("result", "0");
+		$("#check_tip").attr("src", "img/login/no.png");
+	} else if (checkCode == checkNode) {
+		$("#checkCode").attr("result", "1");
+		$("#check_tip").attr("src", "img/login/yes.png");
+	} else {
+		$("#checkCode").attr("result", "0");
+		$("#check_tip").attr("src", "img/login/no.png");
+	}
+}
 // 登录跳转
 function login() {
 	var checkResult = $("#checkCode").attr("result");
